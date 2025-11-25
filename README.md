@@ -83,7 +83,7 @@ Configure in the configuration file:
 }
 ```
 
-💡 Environment variables take precedence over config file. StepFly supports any LLM provider compatible with OpenAI API format.
+💡 **Note**: Environment variables take precedence over config file. StepFly supports any LLM provider compatible with OpenAI API format.
 
 #### Start MongoDB
 
@@ -145,6 +145,8 @@ Starting new troubleshooting session...
 
 ## 🎬 A Synthetic Demo
 
+⚠️ **Warning**: All data used in this demo is synthetic and generated for demonstration purposes only.
+
 ### Diagnosing API Gateway Availability Drop (Incident 700000001)
 
 This demo demonstrates how StepFly diagnoses a critical API gateway incident where availability dropped to 96.2% (below 99.9% SLA) across multiple regions. The root cause is hidden in a critical payment processing workflow failure that only manifests under specific business scenarios.
@@ -172,6 +174,7 @@ python run_web.py
 
 For demo purposes, the mapping between incident IDs and TSGs is pre-configured in `config/incident_tsg_map.json`. The PlanDAGs for different TSGs are stored in `TSGs/PlanDAGs/`. We provide two versions of the same TSG: one for running in series and one for parallel execution. The default is the parallel version, and you can change it in the mapping file if needed. You can tune `max_executor_number` in `config/config.json` to control parallelism.
 
+Annimation of the DAG execution:
 ![gif of demo](asset/stepfly.gif)
 
 **Alternative (Terminal UI)**:
@@ -179,8 +182,6 @@ For demo purposes, the mapping between incident IDs and TSGs is pre-configured i
 python run_terminal.py
 # Follow prompts and enter incident ID: 700000001
 ```
-
-
 
 ## 🔧 Creating Custom TSGs
 
@@ -193,22 +194,24 @@ Our paper "StepFly: Agentic Troubleshooting Guide Automation for Incident Diagno
 If you use StepFly in your research, please cite:
 
 ```
-@article{stepfly2025,
-  title={StepFly: Agentic Troubleshooting Guide Automation for Incident Diagnosis},
-  author={Anonymous Authors},
-  journal={Under Review},
-  year={2025}
+@misc{stepfly2025,
+      title={Agentic Troubleshooting Guide Automation for Incident Management}, 
+      author={Jiayi Mao and Liqun Li and Yanjie Gao and Zegang Peng and Shilin He and Chaoyun Zhang and Si Qin and Samia Khalid and Qingwei Lin and Saravan Rajmohan and Sitaram Lanka and Dongmei Zhang},
+      year={2025},
+      eprint={2510.10074},
+      archivePrefix={arXiv},
+      url={https://arxiv.org/abs/2510.10074}, 
 }
 ```
 
-**Note**: Full citation information will be updated upon publication.
+📌 **Note**: Full citation information will be updated upon publication.
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
-## Disclaimer
+## ⚠️ Disclaimer
 
-StepFly is a research prototype and should be tested thoroughly before use in production environments. The recommended LLM models are examples for exploring agent capabilities. Users are responsible for complying with the licenses of third-party models and services they choose to use with StepFly.
+**Warning**: StepFly is a research prototype and should be tested thoroughly before use in production environments. The recommended LLM models are examples for exploring agent capabilities. Users are responsible for complying with the licenses of third-party models and services they choose to use with StepFly.
 
